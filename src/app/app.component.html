@@ -1,5 +1,15 @@
-<button class="button-basic">Basic Button</button>
+<h1 class="text-center" [style.color]="'blue'" appTitleColor>
+  Welcome to {{ title.toUpperCase() }} tutorials
+</h1>
+<!-- <button class="button-basic">Basic Button</button>
 <button class="button-report">Report Button</button>
-<button class="button-submit">Submit Button</button>
+<button class="button-submit">Submit Button</button> -->
 
+<!-- <app-test
+  (childInfo)="msg = $event"
+  [receiveParentData]="parentCmpData"
+></app-test> -->
+<!-- <input type="text" value="SASS" [id]="courseId" [disabled]="isDisabled" /> -->
+<!-- <h3>{{ msg }}</h3> -->
+<!-- <app-test></app-test> -->
 <router-outlet></router-outlet>
