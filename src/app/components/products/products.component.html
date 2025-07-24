@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-1">
+    <h2>Products</h2>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      (click)="openAddProduct()"
+    >
+      Add Product
+    </button>
+  </div>
+
+  <div *ngIf="products">
+    <table class="table table-bordered table-striped">
+      <thead class="border-2">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product?.name }}</td>
+          <td>{{ product?.price }}</td>
+          <td>{{ product?.color }}</td>
+          <td>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="editProd(product)"
+            >
+              Edit
+            </button>
+            <button class="btn btn-danger mx-2" (click)="deleteProd(product)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  #exampleModal
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ isEdit ? "Edit" : "Add" }} Product
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productForm">
+          <div class="row">
+            <div class="col-6 mb-2">
+              <label for="pName">Product Name</label>
+              <input
+                id="pName"
+                type="text"
+                formControlName="pName"
+                class="form-control"
+                placeholder="Enter Product Name"
+                aria-label="Product Name"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-6 mb-2">
+              <label for="price">Product Price</label>
+              <input
+                id="price"
+                type="text"
+                formControlName="price"
+                class="form-control"
+                placeholder="Enter Product Price"
+                aria-label="Product Price"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="col">
+              <label for="color">Product Color</label>
+              <input
+                type="text"
+                formControlName="pColor"
+                id="color"
+                class="form-control"
+                placeholder="Enter Color"
+                required
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSave()"
+          [disabled]="productForm.invalid"
+        >
+          {{ isEdit ? "Update Product" : "Save" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

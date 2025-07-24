@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "name": "HP Laptop",
+      "price": "50000",
+      "color": "Black and Red",
+      "id": 3
+    },
+    {
+      "name": "Mobiles",
+      "price": "25000",
+      "color": "Red",
+      "id": 4
+    },
+    {
+      "name": "Iphone 4",
+      "price": "15000",
+      "color": "black",
+      "id": 5
+    }
+  ]
+}

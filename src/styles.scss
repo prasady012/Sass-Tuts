@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+button {
+  background: #ff00e9;
+  border: none;
+  padding: 7px 15px;
+  margin: 5px 10px;
+  font-size: 15px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b70aa8;
+}
+
+.text-center {
+  text-align: center;
+}
