@@ -1,0 +1,8 @@
+<!-- Item Listing Using Subject -->
+<div class="row mt-2" *ngIf="items?.length > 0">
+  <h2>From Child one component</h2>
+  <div class="col-md-4" *ngFor="let item of items">
+    <div class="alert alert-primary">{{ item }}</div>
+  </div>
+</div>
+<!-- Item Listing Using Subject /-->

@@ -17,6 +17,6 @@ export class TitleColorDirective {
   }
 
   @HostListener('mouseleave') mouseLeave() {
-    this.elemRef.nativeElement.style.color = 'green';
+    this.elemRef.nativeElement.style.color = '#0d6efd';
   }
 }

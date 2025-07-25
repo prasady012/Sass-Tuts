@@ -22,6 +22,9 @@
         <th>Actions</th>
       </thead>
       <tbody>
+        <tr *ngIf="products?.length == 0">
+          <td class="text-center" colspan="4">No Products Found.</td>
+        </tr>
         <tr *ngFor="let product of products">
           <td>{{ product?.name }}</td>
           <td>{{ product?.price }}</td>
@@ -43,6 +46,30 @@
       </tbody>
     </table>
   </div>
+
+  <!-- ADD LISTING -->
+  <div class="list">
+    <h2>Add Specifications</h2>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="addTask" class="mb-1">Add Item</label>
+        <input
+          id="addTask"
+          type="text"
+          class="form-control"
+          #itemName
+          autocomplete="off"
+        />
+        <button class="btn btn-primary mt-2" (click)="addItem(itemName.value)">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ADD LISTING /-->
+
+  <app-test></app-test>
+  <app-child-one></app-child-one>
 </div>
 
 <!-- Modal -->

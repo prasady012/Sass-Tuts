@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Modal } from 'bootstrap';
+import { TestService } from 'src/app/services/test.service';
 
 @Component({
   selector: 'app-products',
@@ -23,7 +24,11 @@ export class ProductsComponent implements OnInit {
   products: any = [];
   isEdit: boolean = false;
   productId: any;
-  constructor(private fb: FormBuilder, private apiService: ApiService) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private testService: TestService
+  ) {}
 
   ngOnInit(): void {
     this.initializeProductForm();
@@ -120,5 +125,9 @@ export class ProductsComponent implements OnInit {
   openAddProduct() {
     this.isEdit = false;
     this.productForm.reset();
+  }
+
+  addItem(item) {
+    this.testService.addItem(item);
   }
 }

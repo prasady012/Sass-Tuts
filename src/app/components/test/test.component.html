@@ -1,0 +1,49 @@
+<!-- <div *ngIf="status; then trueBlock; else elseBlock"></div>
+
+<ng-template #trueBlock>
+  <h1>It is {{ msg }} portion</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>It is {{ msg }} portion</h1>
+</ng-template>
+
+<div [ngSwitch]="switchVal">
+  <h3 *ngSwitchCase="'one'">This is First Block</h3>
+  <h3 *ngSwitchCase="'two'">This is Second Block</h3>
+  <h3 *ngSwitchCase="'three'">This is Third Block</h3>
+  <h3 *ngSwitchDefault>No Block is available.</h3>
+</div> -->
+<!-- <h1>{{ receiveParentData }}</h1>
+<button (click)="getChildInfo()">View Child Data</button> -->
+
+<!-- <h2>{{ errorMsg }}</h2>
+<table *ngIf="fetchedData?.length > 0">
+  <thead>
+    <th>ID</th>
+    <th>FULL NAME</th>
+    <th>EMAIL</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fetchedData">
+      <td>{{ data.id }}</td>
+      <td>{{ data.first_name + data.last_name }}</td>
+      <td>{{ data.email }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- CHILD ROUTES -->
+<!-- <button (click)="toChildOne()">Child one</button>
+<button (click)="toChildTwo()">Child two</button>
+
+<router-outlet></router-outlet> -->
+<!-- CHILD ROUTES /-->
+
+<!-- Item Listing Using Subject -->
+<div class="row mt-2" *ngIf="items?.length > 0">
+  <div class="col-md-4" *ngFor="let item of items">
+    <div class="alert alert-primary">{{ item }}</div>
+  </div>
+</div>
+<!-- Item Listing Using Subject /-->
