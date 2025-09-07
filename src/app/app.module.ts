@@ -7,8 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { TitleColorDirective } from './directives/title-color.directive';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
-  declarations: [AppComponent, appRoutings, TitleColorDirective],
+  declarations: [AppComponent, appRoutings, TitleColorDirective, FilterPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

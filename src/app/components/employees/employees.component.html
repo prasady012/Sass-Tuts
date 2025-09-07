@@ -1,0 +1,22 @@
+<h2>Employee Search</h2>
+
+<input type="text" placeholder="Search by Emp Name" [(ngModel)]="searchText" />
+
+<input type="text" [value]="searchText" readonly />
+
+<table>
+  <thead>
+    <th>Emp Name</th>
+    <th>Emp Role</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees | filter : searchText : 'name'">
+      <td>{{ emp?.name }}</td>
+      <td>{{ emp?.role }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isLoggedIn; else loggedOut">Welcome back, User!</div>
+
+<ng-template #loggedOut> Please Login. </ng-template>
