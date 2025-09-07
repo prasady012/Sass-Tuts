@@ -15,8 +15,29 @@ export class EmployeesComponent implements OnInit {
     { id: 4, name: 'Rishabh', role: 'Tester' },
     { id: 5, name: 'Rahul', role: 'Designer' },
   ];
+
+  searchFruit: string = '';
+  items: string[] = [
+    'Apple',
+    'Banana',
+    'Orange',
+    'Grapes',
+    'Mango',
+    'Pineapple',
+    'Strawberry',
+  ];
   isLoggedIn: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
+
+  get filteredItem() {
+    if (!this.searchFruit) {
+      return this.items;
+    } else {
+      return this.items.filter((item) =>
+        item.toLowerCase().includes(this.searchFruit.toLowerCase())
+      );
+    }
+  }
 }
