@@ -1,0 +1,41 @@
+<!-- Bind Array/Array of objects to the Dropdown-->
+<h3>For an array</h3>
+<select [(ngModel)]="selectedFruit">
+  <option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</option>
+</select>
+<p><strong>Selected Fruit is:</strong> {{ selectedFruit }}</p>
+<br />
+
+<h3>For an array of objects</h3>
+<select [(ngModel)]="selectedCountryId">
+  <option *ngFor="let country of countries" [value]="country.id">
+    {{ country.name }}
+  </option>
+</select>
+<p><strong>Selected Country ID:</strong> {{ selectedCountryId }}</p>
+
+<br />
+<hr />
+
+<h3>Select State based on the Country selection</h3>
+<div class="row">
+  <div class="col-md-4">
+    <select
+      class="form-control mb-2"
+      (change)="onCountryChange($event.target.value)"
+    >
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control mb-2">
+      <option value="">Select State</option>
+      <option *ngFor="let state of filteredStates" [value]="state.id">
+        {{ state.name }}
+      </option>
+    </select>
+  </div>
+</div>
