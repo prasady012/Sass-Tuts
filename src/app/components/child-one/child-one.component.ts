@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { TestService } from 'src/app/services/test.service';
 
 @Component({
@@ -6,12 +14,23 @@ import { TestService } from 'src/app/services/test.service';
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss'],
 })
-export class ChildOneComponent implements OnInit {
+export class ChildOneComponent implements OnInit, OnChanges {
   items: any = [];
+  @Input() isDisabled: boolean = false;
+  @Input() focusTextBox: boolean = false;
+  @ViewChild('inputBox') inputBox!: ElementRef<HTMLInputElement>;
   constructor(private testService: TestService) {}
 
   ngOnInit(): void {
     this.fetchItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['focusTextBox'] && this.focusTextBox) {
+      setTimeout(() => {
+        this.inputBox.nativeElement.focus();
+      }, 0);
+    }
   }
 
   fetchItems() {
