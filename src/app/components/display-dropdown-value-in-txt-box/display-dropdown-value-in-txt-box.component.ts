@@ -21,6 +21,50 @@ import { Component, OnInit } from '@angular/core';
           </p>
         </div>
       </div>
+
+      <br /><br />
+
+      <div class="row">
+        <div class="col-md-3">
+          <label>
+            <input
+              type="radio"
+              name="options"
+              value="Option 1"
+              (change)="onSelectionChange('Option 1')"
+              [checked]="selectedOption === 'Option 2'"
+            />
+            Option 1
+          </label>
+        </div>
+        <div class="col-md-3">
+          <label>
+            <input
+              type="radio"
+              name="options"
+              value="Option 2"
+              (change)="onSelectionChange('Option 2')"
+              [checked]="selectedOption === 'Option 2'"
+            />
+            Option 2
+          </label>
+        </div>
+        <div class="col-md-3">
+          <label>
+            <input
+              type="radio"
+              name="options"
+              value="Option 3"
+              (change)="onSelectionChange('Option 3')"
+              [checked]="selectedOption === 'Option 3'"
+            />
+            Option 3
+          </label>
+        </div>
+        <div class="col-md-3">
+          <input type="text" [value]="selectedOption" readonly />
+        </div>
+      </div>
     </div>
   `,
   styles: [],
@@ -31,4 +75,9 @@ export class DisplayDropdownValueInTxtBoxComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  selectedOption: string = '';
+  onSelectionChange(value: string) {
+    this.selectedOption = value;
+  }
 }
