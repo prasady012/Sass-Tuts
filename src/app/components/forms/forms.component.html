@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="form-container">
+    <div class="d-flex align-items-center justify-content-between">
+      <button (click)="captureText('Template Driven')">Template Driven</button>
+      <h3 class="text-center">{{ formName }} Form</h3>
+      <button (click)="captureText('Reactive')">Reactive</button>
+    </div>
+
+    <div class="login-form">
+      <form #loginForm="ngForm">
+        <div class="mb-3">
+          <label for="exampleInputUsername" class="form-label">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputUsername"
+            name="username"
+            ngModel
+            #userName="ngModel"
+            [class.is-invalid]="userName.invalid && userName.touched"
+            required
+          />
+          <div
+            class="text-danger"
+            [class.d-none]="userName.valid || userName.untouched"
+          >
+            Username is Required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+            ngModel
+            required
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <div
+            class="text-danger"
+            [class.d-none]="email.valid || email.untouched"
+          >
+            Email ID is Required.
+          </div>
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+            ngModel
+            required
+            #passwordd="ngModel"
+            [class.is-invalid]="passwordd.invalid && passwordd.touched"
+          />
+          <div
+            class="text-danger"
+            [class.d-none]="passwordd.valid || passwordd.untouched"
+          >
+            Password is Required.
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="exampleCheck1"
+            name="rememberme"
+            ngModel
+            required
+            #remember="ngModel"
+            [class.is-invalid]="remember.invalid && remember.touched"
+          />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me</label
+          >
+          <div
+            class="text-danger"
+            [class.d-none]="remember.valid || remember.untouched"
+          >
+            Please check to proceed...
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSave(loginForm)"
+          [disabled]="loginForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
